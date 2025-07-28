@@ -15,7 +15,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  
+  experimental: {
+    // @ts-ignore
+    globalNotFound: true,
+  },
 };
 
 export default nextConfig;
