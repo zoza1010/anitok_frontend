@@ -1,0 +1,42 @@
+.body {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(255, 95, 109, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  .img{
+    width: 35px;
+    height: 35px;
+  }
+
+  width: 100%;
+  @media (hover: none) and (pointer: coarse) {
+    &:hover {
+        background: linear-gradient(135deg, #ffc371, #ff5f6d);
+        box-shadow: 0 6px 12px rgba(255, 99, 104, 0.6);
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(255, 80, 95, 0.5);
+  }
+
+  &:focus {
+    outline: 3px solid #ffa07a;
+    outline-offset: 1px;
+  }
+}

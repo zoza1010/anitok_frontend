@@ -1,0 +1,15 @@
+
+
+.slide{
+    width: 250px !important;
+
+
+
+    @media(max-width:1024px){
+        width: 180px !important;
+    }
+    @media(max-width:768px){
+        width: 135px !important;
+    }
+    
+}

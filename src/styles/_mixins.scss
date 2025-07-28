@@ -1,0 +1,11 @@
+@use "sass:list";
+
+@mixin multiline-ellipsis($lines: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+
+  // Фолбэк для Firefox и других
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

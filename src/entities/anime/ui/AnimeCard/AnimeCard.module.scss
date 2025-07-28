@@ -1,0 +1,112 @@
+@use '@/styles/mixins' as *;
+
+
+.body{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{ 
+            .poster .poster_hover{
+                opacity: 1;
+            }
+            
+            .img{
+                >img{
+                    transform: scale(1.1); // плавный небольшой зум
+                }
+            }
+        }
+    }
+
+
+    .poster{
+        position: relative;
+        margin-bottom: 12px;
+
+        .img {
+            width: 100%;
+            aspect-ratio: 5 / 7;
+            object-fit: cover;
+            object-position: center;
+            position: relative; // для next/image fill
+            overflow: hidden;
+
+            img {
+            transition: transform 0.3s ease;
+            will-change: transform;
+            }
+        }
+
+        .poster_hover{
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+            transition: 0.3s all ease;
+
+            .rating{
+                padding: 15px;
+
+                color: #fff;
+                text-align: center;
+                
+                .score{
+                    font-size: 2rem;
+                    font-weight: 600;
+                    margin-bottom: 2px;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+
+                    .star{
+                        width: 32px;
+                        height: 32px;
+                        color: #ffdb24;
+                    }
+                }
+                .score_count{
+                    font-size: 0.9rem;
+                    opacity: 0.9;
+                }
+            }
+        }
+
+        
+    }
+
+    .text{
+        .title{
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d6d6d6;
+            line-height: 1.3;
+            @include multiline-ellipsis(2);
+
+            margin-bottom: 8px;
+        }
+        .description{
+            font-size: 0.85rem;
+            color: #999;
+            margin: 0;
+            line-height: 1.4;
+
+            @include multiline-ellipsis(2);
+        }
+    }
+
+
+}

@@ -1,0 +1,31 @@
+.body{
+
+    display: grid;
+    
+
+
+    .list{
+        display: flex;
+        gap: 20px;
+
+        .item{
+            
+
+            .item_link{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                height: 50px;
+                width: 50px;
+                border-radius: 10px;
+                background: rgba(217, 217, 217, 0.5);
+                transition: all 0.3s ease;
+
+                &:hover{
+                    background: rgba(#ff9900, 1);
+                }
+            }
+        }
+    }
+}

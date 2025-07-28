@@ -1,0 +1,125 @@
+
+@use './reset.scss' as *;
+@use './fonts.scss' as *;
+
+
+:root {
+  --scrollbar-width: 0px;
+}
+body.scroll-locked {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width);
+}
+
+
+.scrollbar-fix {
+  padding-right: var(--scrollbar-width);
+}
+
+
+
+
+
+
+body {
+  transition: background-color 0.3s, color 0.3s; 
+
+  
+  min-width: 320px;
+  background-color: #121212;
+
+  overflow-y: scroll;
+  overflow: auto;
+
+}
+body {
+  overflow-y: scroll; // явно включаем скролл
+
+  /* Для WebKit-браузеров (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15); // светлый ползунок
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3); // при наведении
+  }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+
+
+.page{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  padding-top: 60px;
+
+  .content{
+    flex: 1;
+    min-height: 80vh;
+
+    padding-top: 32px;
+  }
+  @media(max-width:1024px){
+    
+    padding: 50px 0px 64.39px 0px;
+  }
+  @media(max-width:768px){
+    
+    padding: 50px 0px 61.19px 0px;
+  }
+}
+
+
+
+
+
+.container{
+  max-width: 1310px; 
+  padding: 0  15px;
+
+  margin: 0 auto;
+}
+
+.wrap {
+  max-width: 200px; 
+  width: 100%;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.burger-item {
+  background-color: #292929;
+  border-radius: 8px;
+  padding: 14px 20px;
+  transition: background-color 0.3s ease;
+
+  // :hover для десктопов
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: #3a3a3a;
+    }
+  }
+
+  // :active для мобильных
+  @media (hover: none) and (pointer: coarse) {
+    &:active {
+      background-color: #3a3a3a;
+    }
+  }
+}

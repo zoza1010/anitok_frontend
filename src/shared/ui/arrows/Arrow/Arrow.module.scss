@@ -1,0 +1,60 @@
+.arrowContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.arrow {
+  width: 60%; // Занимает 60% от размера контейнера
+  height: 60%; // Занимает 60% от размера контейнера
+  max-width: 20px; // Максимальный размер стрелки
+  max-height: 20px; // Максимальный размер стрелки
+  border: solid rgba(131, 131, 131);
+  border-width: 0 2px 2px 0; // Толщинsа линий адаптируется
+  display: inline-block;
+  padding: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+
+
+  // Адаптивная толщина границы
+  @media (max-width: 768px) {
+    border-width: 0 1.5px 1.5px 0;
+  }
+}
+
+/* Стартовые анимации */
+.start_top {
+  transform: rotate(-135deg);
+}
+.start_right {
+  transform: rotate(-45deg);
+}
+.start_bottom {
+  transform: rotate(45deg);
+}
+.start_left {
+  transform: rotate(135deg);
+}
+
+
+/* Направления */
+.to_top {
+  transform: rotate( 45deg);
+}
+.to_right {
+  transform: rotate(135deg);
+}
+.to_bottom {
+  transform: rotate(-135deg);
+}
+.to_left {
+  transform: rotate(135deg -45deg);
+}

@@ -1,0 +1,49 @@
+.body{
+    
+
+    .container{
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+
+
+        .text{
+            font-size: 16px;
+        }
+        .img{
+            
+            .avatar{
+                height: 50px;
+                width: 50px;
+            }
+        }
+
+
+        @media(max-width:1024px){
+            .img{
+                .avatar{
+                    height: 38px;
+                    width: 38px;
+                }
+            }
+            .text{
+                font-size: 14px;
+            }
+        }
+
+        @media(max-width:768px){
+            .text{
+                font-size: 14px;
+            }
+        }
+        
+        @media(max-width:425px){
+            .text{
+                display: none;
+            }
+
+            
+        }
+    }
+}
