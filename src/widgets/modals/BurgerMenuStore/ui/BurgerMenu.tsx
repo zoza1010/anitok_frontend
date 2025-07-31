@@ -4,7 +4,7 @@ import { useBurgerMenuStore } from '@/widgets/modals/BurgerMenuStore/model/Burge
 import { useScrollLock } from '@/shared/hooks/useScrollLock';
 import CrossCloseButton from '@/shared/ui/cross/CrossCloseButton/CrossCloseButton';
 import SearchButtonMobile from '@/shared/ui/buttons/SearchButtonMobile/SearchButtonMobile';
-import LogoutButton from '@/shared/ui/buttons/LogoutButton/LogoutButton';
+import LogoutButton from '@/entities/user/ui/LogoutButton/LogoutButton';
 
 
 import { useEffect } from 'react';

@@ -9,7 +9,8 @@ type UserStore = {
   setUser: (user: User) => void;
   setToken: (token: string) => void;
   clearAuth: () => void;
-  logout: () => Promise<void>;
+  logout: () => Promise<{ success: boolean; error?: unknown }>;
+
 };
 
 export const useUserStore = create<UserStore>()(
@@ -22,19 +23,24 @@ export const useUserStore = create<UserStore>()(
       clearAuth: () => {
         set({ user: null, token: null });
       },
-      logout: async () => {
+      logout: async (): Promise<{ success: boolean; error?: unknown }> => {
         const token = get().token;
         if (!token) {
           set({ user: null, token: null });
-          return;
+          return { success: true }; // уже вышли
         }
         try {
           await logoutApi(token);
+          set({ user: null, token: null });
+          return { success: true };
         } catch (e) {
           console.error('Logout API error:', e);
+          return { success: false, error: e };
         }
-        set({ user: null, token: null });
       },
+
+
+
     }),
     {
       name: 'auth',
