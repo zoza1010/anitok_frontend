@@ -8,10 +8,21 @@ import {
   validatePassword,
 } from '@/features/auth/model/validation';
 
+import { useNotificationStore } from '@/widgets/modals/Notification/useNotificationStore';
+
 import { login } from '@/features/auth/api/authApi';
 import { useUserStore } from '@/entities/user/model/userStore';
 
+
+
+
 const AuthForm = () => {
+
+
+  const addNotification = useNotificationStore((state) => state.addNotification);
+  
+
+
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -43,6 +54,9 @@ const AuthForm = () => {
         const response = await login(email, password);
         setToken(response.token);
         setUser(response.user);
+
+        addNotification('Вы успешно войшли в аккаунт', 'success', 3);
+
       } catch (error: unknown) {
         if (error instanceof Error) {
           setErrors({ general: error.message });

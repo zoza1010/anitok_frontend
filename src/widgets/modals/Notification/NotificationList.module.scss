@@ -1,0 +1,179 @@
+
+.container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: $z-overlay + 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  width: 100%;
+  max-width: 500px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+    bottom: 0;
+    right: 0;
+    padding: 0 0.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 35px;
+  }
+}
+
+
+.notification {
+  position: relative;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+
+  background-color: #252527;
+  color: #bfbfbf;
+
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  border: 2px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  animation: slideIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  transform: translateX(120%);
+  opacity: 0;
+
+  &.success {
+    border-color: #22c55e;
+  }
+  &.error {
+    border-color: #ef4444;
+  }
+  &.info {
+    border-color: #eab308;
+  }
+
+  &.exiting {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+}
+
+.content {
+  padding-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.actionsRow {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.bottomCloseButton {
+  padding: 0.5rem 0.75rem;
+
+  background: rgba(255, 255, 255, 0.1);
+  color: #bfbfbf;
+  width: 100%;
+
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 0.9rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+}
+
+.customAction {
+  width: 100%;
+
+  > button,
+  > a {
+    display: block;
+    width: 100%;
+
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+
+    background: #ad4e31;
+    color: #bfbfbf;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    text-decoration: none;
+
+    &:hover {
+      background: #ce5c3a;
+      color: #fff;
+    }
+
+    &:focus {
+      outline: 2px solid #888;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+}

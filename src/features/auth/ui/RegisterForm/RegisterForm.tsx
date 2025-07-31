@@ -8,10 +8,20 @@ import {
   validatePassword,
   validateUsername
 } from '@/features/auth/model/validation';
+
+import { useNotificationStore } from '@/widgets/modals/Notification/useNotificationStore';
+
+
 import { register } from '@/features/auth/api/authApi';
 import { useUserStore } from '@/entities/user/model/userStore';
 
 const RegisterForm = () => {
+
+  const addNotification = useNotificationStore((state) => state.addNotification);
+
+
+
+
   const usernameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -54,6 +64,8 @@ const RegisterForm = () => {
         const response = await register(username, email, password, confirmPassword);
         setToken(response.token);
         setUser(response.user);
+
+        addNotification('Вы успешно создали аккаунт', 'success', 3);
       } catch (error: unknown) {
         if (error instanceof Error) {
           setErrors({ general: error.message });
